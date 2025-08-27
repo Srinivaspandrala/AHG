@@ -1,0 +1,167 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 20px;
+}
+
+.container-login {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.login-form {
+    flex: 1;
+    padding: 40px;
+}
+
+.ad-section-login {
+    flex: 1;
+    background: linear-gradient(45deg, rgb(252, 41, 71), rgb(252, 41, 71));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.logo-login {
+    margin-bottom: 30px;
+    color: #3a7bd5;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.login-logo {
+  width: 150px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+.input-group-login {
+    margin-bottom: 20px;
+}
+
+.input-group-login label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.input-group-login input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.input-group-login input:focus {
+    border-color: #3a7bd5;
+    outline: none;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    color: #3a7bd5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #fc2947;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2c5fa5;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #777;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.separator span {
+    padding: 0 10px;
+}
+
+
+.ad-content h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.ad-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.features {
+    text-align: left;
+    width: 100%;
+    max-width: 300px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feature svg {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .ad-section {
+        display: none;
+    }
+}
