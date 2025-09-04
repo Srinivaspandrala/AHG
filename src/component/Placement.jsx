@@ -57,7 +57,7 @@ const PlacementReadinessAnalyzer = () => {
         const data = await response.json();
         setReadinessScore(data.readinessScore);
 
-        const planResponse = await fetch('http://localhost:5000/improvement-plan', {
+        const planResponse = await fetch('https://ahg-server.onrender.com/improvement-plan', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(scores)
