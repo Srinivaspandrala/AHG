@@ -24,7 +24,7 @@ const PlacementReadinessAnalyzer = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/student/${username}`);
+        const response = await fetch(`https://ahg-server.onrender.com/student/${username}`);
         if (!response.ok) throw new Error('Failed to fetch student data');
         const studentData = await response.json();
         setScores({
@@ -45,7 +45,7 @@ const PlacementReadinessAnalyzer = () => {
   useEffect(() => {
     const fetchReadinessData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/readiness', {
+        const response = await fetch('https://ahg-server.onrender.com/readiness', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
