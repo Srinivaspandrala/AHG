@@ -9,6 +9,7 @@
   --gray: #6c757d;
   --gradient-start: #fc2947;
   --gradient-end: #fc2947;
+  --gradient:(90deg, var(--gradient-end) 0%, var(--gradient-start) 100%);
   --card-bg: rgba(255, 255, 255, 0.95);
   --glass-bg: rgba(255, 255, 255, 0.25);
   --glass-border: rgba(255, 255, 255, 0.18);
@@ -75,6 +76,8 @@ header {
 .student-name {
   font-weight: bold;
   font-size: 18px;
+  text-transform: capitalize;
+  color: var(--gradient-end);
 }
 
 .student-id {
@@ -133,7 +136,7 @@ header {
 .card-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--dark);
+  color: var(--primary);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -363,7 +366,7 @@ header {
   background: transparent;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
-  color: Black;
+  color: var(--gradient-start);
   font-weight: 500;
   position: relative;
   overflow: hidden;
@@ -386,7 +389,7 @@ header {
 
 .tab.active {
   background: rgba(255, 255, 255, 0.2);
-  color: Black;
+  color: var(--warning);
   font-weight: 600;
 }
 

@@ -2,11 +2,10 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import { Chart, DoughnutController, ArcElement, Title, Tooltip, Legend } from 'chart.js';
-import { FaSignOutAlt } from 'react-icons/fa';
+import { FaSignOutAlt, FaChartPie, FaEdit, FaChartLine, FaClipboardList, FaInfoCircle, FaExclamationCircle, FaPenFancy, FaCheckCircle } from 'react-icons/fa'; // Updated import
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Placement.css';
 
-// Register Chart.js components
 Chart.register(DoughnutController, ArcElement, Title, Tooltip, Legend);
 
 const PlacementReadinessAnalyzer = () => {
@@ -25,7 +24,7 @@ const PlacementReadinessAnalyzer = () => {
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
-        const response = await fetch(`https://ahg-server.onrender.com/student/${username}`);
+        const response = await fetch(`http://localhost:5000/student/${username}`);
         if (!response.ok) throw new Error('Failed to fetch student data');
         const studentData = await response.json();
         setScores({
@@ -46,7 +45,7 @@ const PlacementReadinessAnalyzer = () => {
   useEffect(() => {
     const fetchReadinessData = async () => {
       try {
-        const response = await fetch('https://ahg-server.onrender.com/readiness', {
+        const response = await fetch('http://localhost:5000/readiness', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -58,7 +57,7 @@ const PlacementReadinessAnalyzer = () => {
         const data = await response.json();
         setReadinessScore(data.readinessScore);
 
-        const planResponse = await fetch('https://ahg-server.onrender.com/improvement-plan', {
+        const planResponse = await fetch('http://localhost:5000/improvement-plan', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(scores)
@@ -83,7 +82,6 @@ const PlacementReadinessAnalyzer = () => {
     }
     const ctx = gaugeChartRef.current.getContext('2d');
 
-    // Clear previous chart if it exists
     if (gaugeChartInstance.current) {
       gaugeChartInstance.current.destroy();
     }
@@ -175,10 +173,10 @@ const PlacementReadinessAnalyzer = () => {
 
         <div className="tabs">
           <div className={`tab ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
-            <i className="fas fa-chart-pie"></i> Dashboard
+            <FaChartPie /> Dashboard 
           </div>
           <div className={`tab ${activeTab === 'input' ? 'active' : ''}`} onClick={() => setActiveTab('input')}>
-            <i className="fas fa-edit"></i> Input Data
+            <FaEdit /> Input Data 
           </div>
         </div>
 
@@ -188,7 +186,7 @@ const PlacementReadinessAnalyzer = () => {
               <div className="card">
                 <div className="card-header">
                   <div className="card-title">
-                    <i className="fas fa-chart-line"></i> Placement Readiness
+                    <FaChartLine /> Placement Readiness {/* Updated icon */}
                   </div>
                 </div>
                 <div className="readiness-gauge">
@@ -202,7 +200,7 @@ const PlacementReadinessAnalyzer = () => {
               <div className="card">
                 <div className="card-header">
                   <div className="card-title">
-                    <i className="fas fa-chart-pie"></i> Score Breakdown
+                    <FaChartPie /> Score Breakdown {/* Updated icon */}
                   </div>
                 </div>
                 <div className="score-breakdown">
@@ -216,13 +214,13 @@ const PlacementReadinessAnalyzer = () => {
               <div className="card improvement-plan">
                 <div className="card-header">
                   <div className="card-title">
-                    <i className="fas fa-clipboard-list"></i> Personalized Improvement Plan
+                    <FaClipboardList /> Personalized Improvement Plan {/* Updated icon */}
                   </div>
                 </div>
                 {improvementPlan.map((plan, index) => (
                   <div key={index} className={`plan-item priority-${plan.priority}`}>
                     <div className="plan-icon">
-                      <i className={`fas ${plan.priority === 'high' ? 'fa-exclamation-circle' : plan.priority === 'medium' ? 'fa-pen-fancy' : 'fa-check-circle'}`}></i>
+                      {plan.priority === 'high' ? <FaExclamationCircle /> : plan.priority === 'medium' ? <FaPenFancy /> : <FaCheckCircle />} {/* Updated icons */}
                     </div>
                     <div className="plan-content">
                       <h4>{plan.title}</h4>
@@ -240,9 +238,9 @@ const PlacementReadinessAnalyzer = () => {
             <div className="card data-input">
               <div className="card-header">
                 <div className="card-title">
-                  <i className="fas fa-edit"></i> Enter Your Performance Data
+                  <FaEdit /> Enter Your Performance Data {/* Updated icon */}
                 </div>
-                <i className="fas fa-info-circle" style={{color: '#6c757d'}}></i>
+                <FaInfoCircle style={{color: '#6c757d'}} /> {/* Updated icon */}
               </div>
               
               <div className="input-group">
@@ -294,7 +292,7 @@ const PlacementReadinessAnalyzer = () => {
               </div>
               
               <button className="btn" onClick={handleCalculate}>
-                <i className="fas fa-calculator"></i> Calculate Readiness
+                <FaChartLine /> Calculate Readiness {/* Updated icon */}
               </button>
             </div>
           </div>
